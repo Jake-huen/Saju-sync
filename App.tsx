@@ -194,42 +194,48 @@ export const App: React.FC = () => {
           <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">사주 🔮 싱크</h1>
           <p className="text-gray-500 dark:text-gray-400 text-center mb-8">생년월일을 입력하고 나의 천생연분을 찾아보세요.</p>
           
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">성별</label>
-            <div className="flex gap-4">
-              <button 
-                onClick={() => setGender('male')}
-                className={`flex-1 py-3 rounded-lg border font-bold transition-all ${gender === 'male' ? 'bg-blue-600 border-blue-500 text-white shadow-md' : 'bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
-              >
-                남성
-              </button>
-              <button 
-                onClick={() => setGender('female')}
-                className={`flex-1 py-3 rounded-lg border font-bold transition-all ${gender === 'female' ? 'bg-red-500 border-red-400 text-white shadow-md' : 'bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
-              >
-                여성
-              </button>
+          <div className="space-y-4 sm:space-y-5 mb-8">
+            {/* 성별 */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              <label className="w-16 sm:w-20 text-sm font-medium text-gray-700 dark:text-gray-300 shrink-0">성별</label>
+              <div className="flex flex-1 gap-2 sm:gap-4">
+                <button 
+                  onClick={() => setGender('male')}
+                  className={`flex-1 py-2.5 sm:py-3 rounded-lg border font-bold transition-all text-sm sm:text-base ${gender === 'male' ? 'bg-blue-600 border-blue-500 text-white shadow-md' : 'bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                >
+                  남성
+                </button>
+                <button 
+                  onClick={() => setGender('female')}
+                  className={`flex-1 py-2.5 sm:py-3 rounded-lg border font-bold transition-all text-sm sm:text-base ${gender === 'female' ? 'bg-red-500 border-red-400 text-white shadow-md' : 'bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                >
+                  여성
+                </button>
+              </div>
             </div>
-          </div>
 
-          {/* 생년월일 & 태어난 시간 가로 배치 */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">생년월일</label>
+            {/* 생년월일 */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              <label className="w-16 sm:w-20 text-sm font-medium text-gray-700 dark:text-gray-300 shrink-0">생년월일</label>
               <input 
                 type="date" 
                 value={birthDate}
                 onChange={(e) => setBirthDate(e.target.value)}
-                className="w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 rounded-lg px-3 sm:px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors text-sm sm:text-base"
+                className="flex-1 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors text-sm sm:text-base"
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">태어난 시간 <span className="text-xs text-gray-400 dark:text-gray-500 font-normal">(선택)</span></label>
+
+            {/* 태어난 시간 */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              <label className="w-16 sm:w-20 text-sm font-medium text-gray-700 dark:text-gray-300 shrink-0 flex flex-col leading-tight">
+                <span>태어난 시간</span>
+                <span className="text-[10px] text-gray-400 dark:text-gray-500 font-normal mt-0.5">(선택)</span>
+              </label>
               <input 
                 type="time" 
                 value={birthTime}
                 onChange={(e) => setBirthTime(e.target.value)}
-                className="w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 rounded-lg px-3 sm:px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors text-sm sm:text-base"
+                className="flex-1 w-full bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors text-sm sm:text-base"
               />
             </div>
           </div>
